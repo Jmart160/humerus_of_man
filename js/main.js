@@ -13,6 +13,7 @@ var item=null;
 var interactable=null;
 var type=null;
 var popUp = false;
+var hand=null;
 
 MainMenu.prototype =
 {
@@ -58,7 +59,7 @@ townCenter.prototype =
         // preload assets
 
         //game.load.audio('win_snd', ['assets/audio/win sound 1.mp3', 'assets/audio/win sound 1.ogg']);
-        //game.load.audio('win_snd2', ['assets/audio/win sound 1-2.mp3', 'assets/audio/win sound 1-2.ogg']);
+        game.load.audio('jingle', ['assets/audio/win sound 1-2.mp3', 'assets/audio/win sound 1-2.ogg']);
 
         game.load.image('town', 'assets/img/town.png');
 
@@ -113,13 +114,15 @@ townCenter.prototype =
         knob = game.add.sprite(410,600, 'knob');
         knob.anchor.setTo(0.5,0.5);
         knob.inputEnabled = true;
+
+        jingle = game.add.audio('jingle')
         
 
         //console.log('townCenter: create');
     },
 
     update: function(){
-
+ 
         if(item!=null){
             hand = game.add.sprite(player.x+35, player.y-35, item);
             hand.anchor.setTo(0.5,0.5);
@@ -167,6 +170,7 @@ function onTap(pointer){
                 action = "take"
                 console.log("you "+action+" "+interactable);
                 item = interactable;
+                jingle.play();
             }
 		} else if (a2.input.pointerOver()){
 			if(type!=null){
@@ -181,13 +185,14 @@ function onTap(pointer){
                     if(item=="knob"&&interactable=="mynth"){
                         console.log("Mynth gives you a rose in return");
                         item="rose";
+                        jingle.play();
                     }
                     if(item=="rose"&&interactable=="bard"){
                         console.log("Jaahmes takes the rose and attempts to kiss you, but you clock him in the schnoz. You win!");
                         item="rose";
                     }
              }
-                item=null;
+
             }else if(type=="item"){
                 action = "use"
                 if(item!=null){
