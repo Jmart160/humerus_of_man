@@ -4,22 +4,16 @@ MainMenu.prototype = {
     create: function(){
 
         // Establish the basic background
-        game.stage.backgroundColor = "#000000";
+        //game.stage.backgroundColor = "#000000";
 
-        var GameTitle = this.add.bitmapText(this.game.width/2, this.game.height/2 - 64, 'font', 'THE HUMERUS OF MAN', 64);
-        GameTitle.anchor.setTo(0.5, 0.5);
+        //title = this.add.text(this.game.width/2, this.game.height/2-64, 'THE HUMERUS OF MAN', {font-family: 'Yatra One', fontSize: '24px', fill: '#ffffff' });
+        //title.anchor.setTo(0.5, 0.5);
 
-        var Instructions = this.add.bitmapText(this.game.width/2,this.game.height/2, 'font', 'CLICK on NPCs and ITEMS to INTERACT', 32);
-        Instructions.alpha = 1;
-        Instructions.anchor.setTo(0.5, 0.5);
+        instructions = this.add.text(this.game.width/2,this.game.height/2, 'CLICK on NPCs and ITEMS to INTERACT', {font-family: 'Yatra One', fontSize: '24px', fill: '#ffffff' });
+        instructions.anchor.setTo(0.5, 0.5);
 
-        var Instructions = this.add.bitmapText(this.game.width/2,this.game.height/2+32, 'font', 'Because the dialogue system is acting up, refer to the console log.', 32);
-        Instructions.alpha = 1;
-        Instructions.anchor.setTo(0.5, 0.5);
-
-        var SpaceToStart = this.add.bitmapText(this.game.width/2,this.game.height/2+64, 'font', '-CLICK- to start!', 32);
-        SpaceToStart.alpha = 1;
-        SpaceToStart.anchor.setTo(0.5, 0.5);
+        spaceToStart = this.add.text(this.game.width/2,this.game.height/2+64, '-CLICK- to start!', {font-family: 'Yatra One', fontSize: '24px', fill: '#ffffff' });
+        spaceToStart.anchor.setTo(0.5, 0.5);
 
         console.log('MainMenu: create');
     },
