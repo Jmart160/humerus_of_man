@@ -1,18 +1,12 @@
-/*
-Prototype(Build 1)
-Nithin Nediyanchath
-ARTG 120
-*/
-var game = new Phaser.Game(1400, 800, Phaser.AUTO); // Sets up game in aspect ratio of 800 x 850(UI will be displayed at last 350 px).
-
-var MainMenu = function(game){};
-
+// define globals
+var game;
 var mainTitle;
 var instructions;
 var item=null;
 var interactable=null;
 var type=null;
 var popUp = false;
+<<<<<<< HEAD
 var hand=null;
 
 MainMenu.prototype =
@@ -217,4 +211,28 @@ function onTap(pointer){
 game.state.add('MainMenu', MainMenu);
 game.state.add('townCenter', townCenter);
 //game.state.add('lumberYard', lumberYard);
-game.state.start('MainMenu');
+//game.state.start('MainMenu');
+=======
+var box=false;
+var lineCount=null;
+var count=null;
+var storedAction=null;
+var storedSubject=null;
+var playerUp=false;
+var interactableUp=false;
+
+//waiting for browser to load before creating Phaser game
+window.onload = function(){
+	// keep following line commented
+	// localStorage.clear();
+
+	// create ratio
+	game = new Phaser.Game(1400, 800, Phaser.AUTO, '');
+
+	//states here
+	game.state.add('Load', Load);
+	//game.state.add('MainMenu', MainMenu );
+	game.state.add('townCenter', townCenter);
+	game.state.start('Load');
+}
+>>>>>>> dialogueTest
