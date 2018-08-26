@@ -19,5 +19,7 @@ window.onload = function(){
 	game.state.add('Load', Load);
 	game.state.add('MainMenu', MainMenu );
 	game.state.add('townCenter', townCenter);
+	game.state.add('Forest', Forest);
+	game.state.add('graveYard', graveYard);
 	game.state.start('Load');
 }
