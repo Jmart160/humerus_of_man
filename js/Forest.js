@@ -3,44 +3,51 @@ var Forest = function(game){};
 Forest.prototype = {
     create: function(){
         //console.log("This is the town you've lived in for a while. Jaahmes the bard keeps trying to flirt with you but promised to leave you alone if you gave him a token of affection. Mynth the shopkeeper probably has something you can give him. She'll probably ask for something shiny first.")
-        game.input.onTap.add(onTap, this);
 
-        //game.add.sprite(0, 0, '');
-        player = game.add.sprite(50, ((game.world.height/2) + 50), 'playerStand');
+        game.add.sprite(0, 0, 'forest');
+
+        /*player = game.add.sprite(((game.world.width/2) + 50), 400, 'playerStand');
         player.anchor.setTo(0.5, 0.5);
         player.scale.setTo(.2, .2);
-        player.inputEnabled = true;
+        player.inputEnabled = true;*/
 
+        lumberJack = game.add.sprite(((game.world.width/2) + 150), ((game.world.height/2) + 100), 'lumberjack');
+        lumberJack.anchor.setTo(0.5, 0.5);
+        lumberJack.scale.setTo(.2, .2);
+        lumberJack.inputEnabled = true;
 
-        lumberjack = game.add.sprite(((game.world.width/2) - 140), 180, 'Lumberjack');
-        lumberjack.anchor.setTo(0.5, 0.5);
-        lumberjack.scale.setTo(.2, .2);
-        lumberjack.inputEnabled = true;
-
-
-        skull = game.add.sprite(((game.world.width/2) + 330),((game.world.height/2) + 250), 'skull');
+        skull = game.add.sprite(280, ((game.world.height/2) - 30), 'skull');
         skull.anchor.setTo(0.5, 0.5);
-        skull.scale.setTo(-.2, .2);
+        skull.scale.setTo(.8, .8);
         skull.inputEnabled = true;
 
-        sign = game.add.sprite(410,600, 'sign');
-        sign.anchor.setTo(0.5,0.5);
+        sign = game.add.sprite((game.world.width - 75),((game.world.height/2) + 215), 'sign');
+        sign.anchor.setTo(0.5, 0.5);
         sign.inputEnabled = true;
+
+        /*potion = game.add.sprite(game.width-200,game.height/2,'potion');
+        potion.anchor.set(.5);
+        potion.inputEnabled = true;*/
+
+        game.input.onTap.add(onTap, this);
+        /*knob = game.add.sprite(410,600, 'knob');
+        knob.anchor.setTo(0.5,0.5);
+        knob.inputEnabled = true;*/
         
 
-        //console.log('Forest: create');
+        //console.log('townCenter: create');
     },
 
     update: function(){
 
-        if(item!=null){
+        /*if(item!=null){
             hand = game.add.sprite(player.x+35, player.y-35, item);
             hand.anchor.setTo(0.5,0.5);
-        }
+        }*/
     }
 };
 
-function onTap(pointer){
+/*function onTap(pointer){
 	//checks if there is a popup
 	if(popUp==false){
 		//adds the assets for the popup buttons near the mouse
@@ -117,4 +124,4 @@ function onTap(pointer){
 		//popup does not exist, can be made again
 		popUp=false;
 	}
-}
+}*/

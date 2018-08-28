@@ -2,40 +2,53 @@ var graveYard = function(game){};
 
 graveYard.prototype = {
     create: function(){
-        console.log("This is the town you've lived in for a while. Jaahmes the bard keeps trying to flirt with you but promised to leave you alone if you gave him a token of affection. Mynth the shopkeeper probably has something you can give him. She'll probably ask for something shiny first.")
-        game.input.onTap.add(onTap, this);
+        //console.log("This is the town you've lived in for a while. Jaahmes the bard keeps trying to flirt with you but promised to leave you alone if you gave him a token of affection. Mynth the shopkeeper probably has something you can give him. She'll probably ask for something shiny first.")
 
-        game.add.sprite(0, 0, 'town');
+        game.add.sprite(0, 0, 'graveyard');
 
-        player = game.add.sprite(((game.world.width/2) + 50), ((game.world.height/2) + 50), 'playerStand');
+        /*player = game.add.sprite(((game.world.width/2) + 50), 400, 'playerStand');
         player.anchor.setTo(0.5, 0.5);
         player.scale.setTo(.2, .2);
-        player.inputEnabled = true;
+        player.inputEnabled = true;*/
 
-
-        dic = game.add.sprite(((game.world.width/2) - 140), 180, 'dic');
+        dic = game.add.sprite(((game.world.width/2) - 250), ((game.world.height/2) - 130), 'dic');
         dic.anchor.setTo(0.5, 0.5);
         dic.scale.setTo(.2, .2);
         dic.inputEnabled = true;
 
+        gStone1 = game.add.sprite(((game.world.width/2) + 78), (game.world.height - 80), 'gStone1');
+        gStone1.anchor.setTo(0.5, 0.5);
+        gStone1.angle = -20;
+        gStone1.inputEnabled = true;
+
+        gStone2 = game.add.sprite(((game.world.width/2) + 2), 165, 'gStone2');
+        gStone2.anchor.setTo(0.5, 0.5);
+        gStone2.angle = -42;
+        gStone2.inputEnabled = true;
+
+        /*potion = game.add.sprite(game.width-200,game.height/2,'potion');
+        potion.anchor.set(.5);
+        potion.inputEnabled = true;*/
+
+        game.input.onTap.add(onTap, this);
         /*knob = game.add.sprite(410,600, 'knob');
         knob.anchor.setTo(0.5,0.5);
-        knob.inputEnabled = true;
+        knob.inputEnabled = true;*/
         
 
-        //console.log('graveYard: create');
+        //console.log('townCenter: create');
     },
 
     update: function(){
 
-        if(item!=null){
+        /*if(item!=null){
             hand = game.add.sprite(player.x+35, player.y-35, item);
             hand.anchor.setTo(0.5,0.5);
-        }
+        }*/
     }
 };
 
-function onTap(pointer){
+/*function onTap(pointer){
 	//checks if there is a popup
 	if(popUp==false){
 		//adds the assets for the popup buttons near the mouse
