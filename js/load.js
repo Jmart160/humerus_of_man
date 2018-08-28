@@ -1,33 +1,11 @@
 var Load = function(game){};
 Load.prototype = {
 	preload: function(){
-		// loading bar?
 
-
-		// load graphic assets
-
-		/*game.load.image('start_button', 'start_button.png');
-		
-
-		game.load.image('a1', 'action1.png');
-        game.load.image('a2', 'action2.png');
-        game.load.image('a3', 'action3.png');
-
-        game.load.image('knob', 'knob.png');
-        game.load.image('rose', 'rose.png');
-
-        game.load.image('playerStand', 'MC.png');
-        game.load.image('player', 'mc2.png');
-
-        game.load.image('bardStand', 'Bard.png');
-        game.load.image('bard', 'Bard2.png');
-
-        game.load.image('mynthStand', 'Mynth.png');
-        game.load.image('mynth', 'Mynth2.png');*/
-
+		game.load.image('title', 'assets/img/title.png');
 		game.load.image('town', 'assets/img/town.png');
 		game.load.image('forest', 'assets/img/Forest.png');
-		game.load.image('graveyard', 'assets/img/Graveyard.png');
+		game.load.image('graveyard', 'assets/img/Graveyard.png');		
 
 		game.load.image('player', 'assets/img/mc2.png');
 		game.load.image('screen', 'assets/img/UI.png');
@@ -46,9 +24,9 @@ Load.prototype = {
 		game.load.image('skull', 'assets/img/skull.png');
 		game.load.image('axe', 'assets/img/axe.png');
 		game.load.image('sign', 'assets/img/sign.png');
-		game.load.image('dog', 'assets/img/doggo.png');
-		game.load.image('gStone1', 'assets/img/Gstone1.png');
-		game.load.image('gStone2', 'assets/img/Gstone2.png');
+		game.load.image('doggo', 'assets/img/doggo.png');
+		game.load.image('grave1', 'assets/img/grave1.png');
+		game.load.image('grave2', 'assets/img/grave2.png');
 
 		game.load.image('pudding', 'assets/img/pudding.png');
 		game.load.image('puddingC', 'assets/img/pudding2.png');
@@ -76,12 +54,12 @@ Load.prototype = {
 		game.load.image('mynth-1-4', 'assets/img/mynth-1-4.png');
 
         // load audio assets
-        game.load.path = 'assets/audio/'
         //game.load.audio('win_snd', ['win sound 1.mp3', 'win sound 1.ogg']);
         //game.load.audio('win_snd2', ['win sound 1-2.mp3', 'win sound 1-2.ogg']);
 
 	},
 	create: function(){
+		stateIn='load';
 		// check for local storage browser support
 		if(window.localStorage){
 			console.log('Local storage supported');
@@ -89,6 +67,6 @@ Load.prototype = {
 			console.log('Local storage not supported');
 		}
 		// go to mainMenu state
-		game.state.start('graveYard')
+		game.state.start('mainMenu');
 	}
 };
