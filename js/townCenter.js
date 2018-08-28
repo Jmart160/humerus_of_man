@@ -11,17 +11,30 @@ townCenter.prototype = {
         player.scale.setTo(.2, .2);
         player.inputEnabled = true;*/
 
-
-        /*bard = game.add.sprite(((game.world.width/2) - 140), 180, 'bard');
+        bard = game.add.sprite(((game.world.width/2) - 140), 180, 'bard');
         bard.anchor.setTo(0.5, 0.5);
         bard.scale.setTo(.2, .2);
-        bard.inputEnabled = true;*/
+        bard.inputEnabled = true;
 
+        prince = game.add.sprite(((game.world.width/2) + 240), 180, 'pudding');
+        prince.anchor.setTo(0.5, 0.5);
+        prince.scale.setTo(.2, .2);
+        prince.inputEnabled = true;
 
-        mynth = game.add.sprite(((game.world.width/2) + 330),((game.world.height/2) + 250), 'mynth');
+        dog = game.add.sprite(((game.world.width/2)), 350, 'dog');
+        dog.anchor.setTo(0.5, 0.5);
+        dog.scale.setTo(.4, .4);
+        dog.inputEnabled = true;
+
+        mynth = game.add.sprite(((game.world.width/2) - 320),((game.world.height/2) + 210), 'mynth');
         mynth.anchor.setTo(0.5, 0.5);
         mynth.scale.setTo(-.2, .2);
         mynth.inputEnabled = true;
+
+        barKeep = game.add.sprite(((game.world.width/2) + 270),((game.world.height/2) + 230), 'barkeep');
+        barKeep.anchor.setTo(0.5, 0.5);
+        barKeep.scale.setTo(-.2, .2);
+        barKeep.inputEnabled = true;
 
         potion = game.add.sprite(game.width-200,game.height/2,'potion');
         potion.anchor.set(.5);

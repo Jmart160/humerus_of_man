@@ -26,5 +26,10 @@ window.onload = function(){
     game.state.add('Load', Load);
     //game.state.add('MainMenu', MainMenu );
     game.state.add('townCenter', townCenter);
+<<<<<<< HEAD
+=======
+    //game.state.add('Forest', Forest);
+    //game.state.add('graveYard', graveYard);
+>>>>>>> nithin
     game.state.start('Load');
 }
