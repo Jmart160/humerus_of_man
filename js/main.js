@@ -17,8 +17,6 @@ var gateOpen=false;
 
 //waiting for browser to load before creating Phaser game
 window.onload = function(){
-    // keep following line commented
-    // localStorage.clear();
 
     // create ratio
     game = new Phaser.Game(1400, 800, Phaser.AUTO, '');
