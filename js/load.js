@@ -60,12 +60,6 @@ Load.prototype = {
 	},
 	create: function(){
 		stateIn='load';
-		// check for local storage browser support
-		if(window.localStorage){
-			console.log('Local storage supported');
-		}else{
-			console.log('Local storage not supported');
-		}
 		// go to mainMenu state
 		game.state.start('mainMenu');
 	}
