@@ -14,7 +14,7 @@ Load.prototype = {
 		game.load.image('forest', 'Forest.png');
 		game.load.image('graveyard', 'Graveyard.png');
 
-		ame.load.atlas('atlas', 'atlas.png', 'atlas.json');
+		game.load.atlas('atlas', 'atlas.png', 'atlas.json');
 
 		//game.load.atlas('mc2', 'atlas.png', 'atlas.json');
 		game.load.image('screen', 'UI.png');

@@ -3,6 +3,10 @@ var townCenter = function(game){};
 townCenter.prototype = {
     create: function(){
         stateIn='town';
+
+        titleS.stop();
+        townS = game.add.audio('credits');
+        townS.play();
         game.add.sprite(0, 0, 'town');
 
         bard = game.add.sprite(((game.world.width/2) - 140), 180, 'atlas', 'bard');
@@ -42,7 +46,10 @@ townCenter.prototype = {
     update: function(){
         if (direct.input.pointerOver()){
             direct.alpha = 1;
-            if(game.input.activePointer.leftButton.isDown){game.state.start('Forest');} // Send to Controls
+            if(game.input.activePointer.leftButton.isDown){
+                townS.stop();
+                game.state.start('Forest');
+            } // Send to Controls
         }
         else{direct.alpha = 0.5;}
     },

@@ -3,6 +3,10 @@ var Forest = function(game){};
 Forest.prototype = {
     create: function(){
         stateIn='forest';
+
+        titleS = game.add.audio('title');
+        titleS.play();
+
         game.add.sprite(0, 0, 'forest');
 
         lumberjack = game.add.sprite(((game.world.width/2) + 150), ((game.world.height/2) + 100), 'atlas', 'lumberjack');
@@ -43,7 +47,10 @@ Forest.prototype = {
     update: function(){
         if (direct.input.pointerOver()){
             direct.alpha = 1;
-            if(game.input.activePointer.leftButton.isDown){game.state.start('townCenter');} // Send to Controls
+            if(game.input.activePointer.leftButton.isDown){
+                titleS.stop();
+                game.state.start('townCenter');
+            } // Send to Controls
         }
         else{direct.alpha = 0.5;}
 
