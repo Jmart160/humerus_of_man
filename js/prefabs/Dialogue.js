@@ -165,7 +165,7 @@ function dialogue(subject, action, lines, conversation) {
 	}else if(type=='npc'&&conversation==true){
 		closeUp=game.add.sprite(game.width/3*2,game.height/4*3,subject+'C');
 		closeUp.anchor.setTo(.5,1);
-		player=game.add.sprite(game.width/3,game.height/4*3,'player');
+		player=game.add.sprite(game.width/3,game.height/4*3, 'atlas', 'mc2');
 		player.anchor.setTo(.5,1);
 		closeUp.scale.set(1.4);
 		player.scale.set(1.4);

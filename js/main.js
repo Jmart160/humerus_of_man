@@ -27,9 +27,6 @@ window.onload = function(){
     game.state.add('townCenter', townCenter);
     game.state.add('mainMenu', mainMenu );
     game.state.add('Load', Load);
-<<<<<<< HEAD
-=======
     game.state.add('Boot', Boot);
->>>>>>> master
     game.state.start('Boot');
 }
