@@ -29,5 +29,5 @@ window.onload = function(){
     game.state.add('townCenter', townCenter);
     game.state.add('mainMenu', mainMenu );
     game.state.add('Load', Load);
-    game.state.start('Load');
+    game.state.start('Boot');
 }
