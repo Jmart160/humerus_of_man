@@ -23,9 +23,32 @@ Forest.prototype = {
         gate.anchor.setTo(0.5, 0.5);
         gate.inputEnabled = true;
 
+        direct = game.add.sprite(400, 60, 'arrow');
+        direct.anchor.setTo(0.5, 0.5);
+        direct.angle = 0;
+        direct.alpha = 0.5;
+        direct.inputEnabled = true;
+
+        direct2 = game.add.sprite(350, game.world.height - 200, 'arrow');
+        direct2.anchor.setTo(0.5, 0.5);
+        direct2.angle = -105;
+        direct2.alpha = 0.5;
+        direct2.inputEnabled = true;
+
         game.input.onTap.add(onTap, this);
     },
 
     update: function(){
+        if (direct.input.pointerOver()){
+            direct.alpha = 1;
+            if(game.input.activePointer.leftButton.isDown){game.state.start('townCenter');} // Send to Controls
+        }
+        else{direct.alpha = 0.5;}
+
+        if (direct2.input.pointerOver()){
+            direct2.alpha = 1;
+            if(game.input.activePointer.leftButton.isDown){game.state.start('graveYard');} // Send to Controls
+        }
+        else{direct2.alpha = 0.5;}
     }
 };

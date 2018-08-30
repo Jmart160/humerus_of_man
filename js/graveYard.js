@@ -20,10 +20,21 @@ graveYard.prototype = {
         grave2.angle = -42;
         grave2.inputEnabled = true;
 
+        direct = game.add.sprite((game.world.width - 225), 60, 'arrow');
+        direct.anchor.setTo(0.5, 0.5);
+        direct.angle = 80;
+        direct.alpha = 0.5;
+        direct.inputEnabled = true;
+
         game.input.onTap.add(onTap, this);
     },
 
     update: function(){
+        if (direct.input.pointerOver()){
+            direct.alpha = 1;
+            if(game.input.activePointer.leftButton.isDown){game.state.start('Forest');} // Send to Controls
+        }
+        else{direct.alpha = 0.5;}
 
     }
 };

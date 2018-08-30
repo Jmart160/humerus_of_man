@@ -23,6 +23,7 @@ window.onload = function(){
     game = new Phaser.Game(1400, 800, Phaser.AUTO, '');
 
     //states here
+    game.state.add('Boot', Boot);
     game.state.add('graveYard', graveYard);
     game.state.add('Forest', Forest);
     game.state.add('townCenter', townCenter);
