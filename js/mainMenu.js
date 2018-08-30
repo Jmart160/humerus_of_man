@@ -7,5 +7,5 @@ mainMenu.prototype = {
         title=game.add.sprite(0,0,'title');
         console.log('MainMenu: create');
         title.inputEnabled = true;
-    },
+    }
 };

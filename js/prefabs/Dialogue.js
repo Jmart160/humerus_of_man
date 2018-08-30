@@ -123,6 +123,9 @@ function onTap(pointer) {
 	            } else if (itemEx.input.pointerOver()){
 	                dialogue("potion", 2, 2, false)
 	            } else if (itemUse.input.pointerOver()){
+	            	if(interactable=='gate'){
+	            		gateOpen=true;
+	            	}
 	                dialogue("potion", 3, 2, false)
 	                //destros popup after choice or no choice is made
 	            }

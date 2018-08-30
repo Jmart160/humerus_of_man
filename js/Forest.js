@@ -2,7 +2,7 @@ var Forest = function(game){};
 
 Forest.prototype = {
     create: function(){
-        stateIn='forest;'
+        stateIn='forest';
         game.add.sprite(0, 0, 'forest');
 
         lumberjack = game.add.sprite(((game.world.width/2) + 150), ((game.world.height/2) + 100), 'lumberjack');
@@ -15,12 +15,14 @@ Forest.prototype = {
         skull.scale.setTo(.8, .8);
         skull.inputEnabled = true;
 
-        sign = game.add.sprite((game.world.width - 75),((game.world.height/2) + 215), 'sign');
+        sign = game.add.sprite((game.world.width - 225),((game.world.height/2) + 265), 'sign');
         sign.anchor.setTo(0.5, 0.5);
         sign.inputEnabled = true;
 
-        gate = game.add.sprite((game.world.width - 75),((game.world.height/2) - 215), 'gate');
-        gate.anchor.setTo(0.5, 0.5);
+        gate = game.add.sprite(0,game.world.height, 'potion');
+        gate.anchor.setTo(0, 1);
+        gate.scale.setTo(4,3);
+        gate.alpha=0;
         gate.inputEnabled = true;
 
         direct = game.add.sprite(400, 60, 'arrow');
@@ -45,7 +47,7 @@ Forest.prototype = {
         }
         else{direct.alpha = 0.5;}
 
-        if (direct2.input.pointerOver()){
+        if (direct2.input.pointerOver()&&gateOpen==true){
             direct2.alpha = 1;
             if(game.input.activePointer.leftButton.isDown){game.state.start('graveYard');} // Send to Controls
         }
