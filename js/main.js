@@ -35,7 +35,7 @@ window.onload = function(){
     game.state.add('credits', credits);
     game.state.add('forest', forest);
     game.state.add('town', town);
-    game.state.add('menu', menu );
+    game.state.add('title', title );
     game.state.add('load', load);
     game.state.add('boot', boot);
     game.state.start('boot');

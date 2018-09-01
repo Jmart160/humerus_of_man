@@ -1,10 +1,10 @@
 function onTap(pointer) {
 
-	if(stateIn=='menu'){
+	if(stateIn=='title'){
 		game.state.start('town');
 	}else if(stateIn=='credits'){
 		bm.destroy();
-		game.state.start('menu');
+		game.state.start('title');
 	}else{
 		if(box!=false){
 			if(count!=lineCount){
@@ -172,7 +172,7 @@ function onTap(pointer) {
 					dialogue("bard", 2, 7, true, false);
 					bardCount++;
 					item='potion';
-					document.body.style.backgroundImage = "url('css/bg-key1.png')";
+					document.body.style.backgroundImage = "url('css/bg-potion.png')";
 				} else if (npcTalk.input.pointerOver()&&bardCount==3){
 					dialogue("bard", 3, 2, true, false);
 				} else if (npcEx.input.pointerOver()){

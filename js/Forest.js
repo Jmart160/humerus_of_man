@@ -19,7 +19,7 @@ forest.prototype = {
         if(skullUsed==false&&item!='skull'){
 	        skull = game.add.sprite(280, ((game.world.height/2) - 22.5), 'art', 'skull');
 	        skull.anchor.setTo(0.5);
-	        skull.scale.setTo(.6, .6);
+	        //skull.scale.setTo(.6, .6);
 	        skull.inputEnabled = true;
 	    }
 	    

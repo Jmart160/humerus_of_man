@@ -10,6 +10,8 @@ load.prototype = {
 		game.load.atlas('art', 'assets/img/art.png', 'assets/img/art.json');
 		game.load.atlas('dialogue', 'assets/img/dialogue.png', 'assets/img/dialogue.json');
 
+		game.load.image('scroll', 'assets/img/scroll.png')
+
 		game.load.audio('title', 'assets/audio/title-forrest.mp3');
 		game.load.audio('graveyard', 'assets/audio/graveyard.mp3');
 		game.load.audio('credits', 'assets/audio/town-credits.mp3');
@@ -17,7 +19,7 @@ load.prototype = {
 	},
 	create: function(){
 		stateIn='load';
-		// go to mainMenu state
-		game.state.start('menu');
+		// go to title state
+		game.state.start('title');
 	}
 };
