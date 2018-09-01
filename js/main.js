@@ -28,7 +28,7 @@ var skullUsed=false;
 window.onload = function(){
 
     // create ratio
-    game = new Phaser.Game(1400, 800, Phaser.AUTO, '');
+    game = new Phaser.Game(1050, 600, Phaser.AUTO, 'bones');
 
     //states here
     game.state.add('graveyard', graveyard);

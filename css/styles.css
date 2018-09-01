@@ -1,3 +1,16 @@
 body {
 	font-family: 'Yatra One', cursive;
+	font-size: 32px;
+	color: #333;
+	width: 1050px;
+	margin: 0 auto;
+	background-color: #4d4d4d;
+}
+#bones {
+	width: 1050px;
+}
+
+#gameTitle {
+	color: #DAA520;
+	margin-bottom: 0;
 }
