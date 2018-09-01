@@ -15,6 +15,8 @@ credits.prototype = {
 		}
 
 		scroll=game.add.sprite(0,300,'scroll');
+
+		game.input.onTap.add(onTap, this);
 	},
 
 	update: function(){

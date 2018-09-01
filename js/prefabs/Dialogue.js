@@ -409,7 +409,7 @@ function onTap(pointer) {
 				popUp=false;
 			} else if(stateIn=='forest'&&interactable=="gate"&&gateOpen==false){
 				if (itemTake.input.pointerOver()){
-					console.log('cannot take');
+					dialogue("error", 4, 1, false, false);
 				} else if (itemEx.input.pointerOver()){
 					dialogue("gate", 1, 2, false, false);
 				} else if (itemUse.input.pointerOver()&&item==null){
@@ -500,7 +500,6 @@ function onTap(pointer) {
 }
 
 function dialogue(subject, action, lines, conversation, using) {
-	console.log(action+", "+subject+", "+lines);
 	count=1;
 	lineCount=lines;
 	storedAction=action;
