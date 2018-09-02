@@ -32,7 +32,6 @@ title.prototype = {
 
 		bm = game.add.audio('title');
         bm.play('', 0, .35, true);
-		console.log('title: create');
 		title.inputEnabled = true;
 	}
 };

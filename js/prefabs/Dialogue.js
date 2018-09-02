@@ -512,16 +512,20 @@ function dialogue(subject, action, lines, conversation, using) {
 
 	if(subject=='end'){
 		if(action==1){
-			ending=game.add.sprite(game.width/2,game.height/3,'art','potion');
+			ending=game.add.sprite(game.width/2,game.height/3+12,'ending-01');
+			ending.scale.setTo(.66);
 			ending.anchor.set(.5);
 		}else if(action==2){
-			ending=game.add.sprite(game.width/2,game.height/3,'art','dog');
+			ending=game.add.sprite(game.width/2,game.height/3+12,'ending-02');
+			ending.scale.setTo(.66);
 			ending.anchor.set(.5);
 		}else if(action==3){
-			ending=game.add.sprite(game.width/2,game.height/3,'art','skull');
+			ending=game.add.sprite(game.width/2,game.height/3+12,'ending-03');
+			ending.scale.setTo(.66);
 			ending.anchor.set(.5);
 		}else if(action==4){
-			ending=game.add.sprite(game.width/2,game.height/3,'art','bard');
+			ending=game.add.sprite(game.width/2,game.height/3+12,'ending-04');
+			ending.scale.setTo(.66);
 			ending.anchor.set(.5);
 		}
 	}else if(type=='item'&&using==false&&subject!='error'){
