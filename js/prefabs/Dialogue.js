@@ -1,13 +1,18 @@
 function onTap(pointer) {
 
+	//checks which state you are in and determines what the initial tap does
 	if(stateIn=='title'){
+		//starts the game from title
 		game.state.start('town');
 	}else if(stateIn=='credits'){
+		//returns to the title from credits
 		bm.destroy();
 		game.state.start('title');
 	}else{
+		//checks to see if there is a dialogue box open
 		if(box!=false){
 			if(count!=lineCount){
+				//advances dialogue
 				count++;
 				text.destroy();
 				text=game.add.sprite(game.width/2,game.height-112.5,'dialogue',storedSubject+'-'+storedAction+'-0'+count);
@@ -20,6 +25,7 @@ function onTap(pointer) {
 				storedAction=null;
 				storedSubject=null;
 
+				//enters the graveyard without interacting with the gate
 				game.state.start('graveyard')
 			}else if(storedSubject=='end'&&storedAction==1){
 				box=false;
@@ -28,6 +34,7 @@ function onTap(pointer) {
 				storedAction=null;
 				storedSubject=null;
 
+				//starts the credits
 				game.state.start('credits');
 			}else if(storedSubject=='end'&&storedAction==2){
 				box=false;
@@ -36,6 +43,7 @@ function onTap(pointer) {
 				storedAction=null;
 				storedSubject=null;
 
+				//starts the credits
 				game.state.start('credits');
 			}else if(storedSubject=='end'&&storedAction==3){
 				box=false;
@@ -44,6 +52,7 @@ function onTap(pointer) {
 				storedAction=null;
 				storedSubject=null;
 
+				//starts the credits
 				game.state.start('credits');
 			}else if(storedSubject=='end'&&storedAction==4){
 				box=false;
@@ -52,12 +61,15 @@ function onTap(pointer) {
 				storedAction=null;
 				storedSubject=null;
 
+				//starts the credits with the secret end
 				creditType='bard';
 				game.state.start('credits');
 			}else{
 				if(storedSubject=='prince'&&storedAction==1){
+					//destroys the initial screen in town
 					dim.destroy();
 				}
+				//destroys dialogue box, any speakers, and items
 				screen.destroy();
 				text.destroy();
 				box=false;
@@ -82,6 +94,7 @@ function onTap(pointer) {
 
 		//checks if there is a popup
 		else if(popUp==false){
+			//determines what npc or item is being interacted with based on state
 			if(stateIn=='town'){
 				if(mynth.input.pointerOver()){
 					interactable = "mynth";
@@ -127,7 +140,7 @@ function onTap(pointer) {
 			}
 
 			if(type=="npc"){
-				//adds the assets for the popup buttons near the mouse
+				//adds the npc only assets for the popup buttons near the mouse
 				npcTalk = game.add.sprite(game.input.mousePointer.x+32, game.input.mousePointer.y-24, 'art','actions-01');
 				npcEx = game.add.sprite(game.input.mousePointer.x+32, game.input.mousePointer.y, 'art','actions-02');
 				npcGive = game.add.sprite(game.input.mousePointer.x+32, game.input.mousePointer.y+24, 'art','actions-03');
@@ -145,7 +158,7 @@ function onTap(pointer) {
 				//popup exists
 				popUp=true;
 			} else if(type=="item"){
-				//adds the assets for the popup buttons near the mouse
+				//adds the item only assets for the popup buttons near the mouse
 				itemTake = game.add.sprite(game.input.mousePointer.x+32, game.input.mousePointer.y-24, 'art','actions-04');
 				itemEx = game.add.sprite(game.input.mousePointer.x+32, game.input.mousePointer.y, 'art','actions-02');
 				itemUse = game.add.sprite(game.input.mousePointer.x+32, game.input.mousePointer.y+24, 'art','actions-05');
@@ -163,43 +176,57 @@ function onTap(pointer) {
 			}
 
 		}else{
-			//a different action for each button
+			//determines what state, npc/item, and action is being used and opens the correct dialogue for each
+			//comments in this first section explain the next sections that do not have comments
 			 if(stateIn=='town'&&interactable=="bard"){
 				if (npcTalk.input.pointerOver()&&bardCount==1){
+					//starts the talk option for this npc, increases the counter so the next talk option has different dialogue
 					dialogue("bard", 1, 8, true, false);
 					bardCount++;
 				} else if (npcTalk.input.pointerOver()&&bardCount==2){
+					//starts the second talk option fot this npc, gives item
 					dialogue("bard", 2, 7, true, false);
 					bardCount++;
 					item='potion';
+					//sets the background image to keep track of which item you are holding
 					document.body.style.backgroundImage = "url('css/bg-potion.png')";
 				} else if (npcTalk.input.pointerOver()&&bardCount==3){
+					//starts the third talk option fot this npc
 					dialogue("bard", 3, 2, true, false);
 				} else if (npcEx.input.pointerOver()){
+					//starts the examine option fot this npc
 					dialogue("bard", 4, 4, false, false);
 				} else if (npcGive.input.pointerOver()&&item=='rose'){
+					//starts the give option for this npc, with currently held item
 					dialogue("bard", 5, 6, true, true);
 					item=null;
+					//sets the background image to keep track of which item you are holding
 					document.body.style.backgroundImage = "url('css/bg-null.png')";
 				} else if (npcGive.input.pointerOver()&&item=='saxlube'){
+					//starts the give option fot this npc, with currently held item
 					dialogue("bard", 6, 5, true, true);
 					item='key1';
+					//sets the background image to keep track of which item you are holding
 					document.body.style.backgroundImage = "url('css/bg-key1.png')";
 				} else if (npcGive.input.pointerOver()&&item=='skull'){
+					//starts the give option fot this npc, with currently held item
 					dialogue("bard", 7, 6, true, true);
 					skullUsed=true;
 					item=null;
+					//sets the background image to keep track of which item you are holding
 					document.body.style.backgroundImage = "url('css/bg-null.png')";
 				} else if (npcGive.input.pointerOver()&&item==null){
+					//displays error if no item is held
 					dialogue("error", 2, 1, false, false);
 				} else if (npcGive.input.pointerOver()&&item!=null){
+					//displays error if item cannot be used on npc
 					dialogue("error", 3, 1, false, true);
 				}
-				//destros popup after choice or no choice is made
+				//destroys popup after choice or no choice is made
 				npcTalk.destroy();
 				npcEx.destroy();
 				npcGive.destroy();
-				//popup does not exist, can be made again
+				//resets popup variable so popup can be made again
 				popUp=false;
 			} else if(stateIn=='town'&&interactable=="mynth"){
 				if (npcTalk.input.pointerOver()&&mynthCount==1){
@@ -229,11 +256,9 @@ function onTap(pointer) {
 				} else if (npcGive.input.pointerOver()&&item!=null){
 					dialogue("error", 3, 1, false, true);
 				}
-				//destros popup after choice or no choice is made
 				npcTalk.destroy();
 				npcEx.destroy();
 				npcGive.destroy();
-				//popup does not exist, can be made again
 				popUp=false;
 			} else if(stateIn=='town'&&interactable=="barkeep"){
 				if (npcTalk.input.pointerOver()&&barkeepCount==1){
@@ -264,11 +289,9 @@ function onTap(pointer) {
 				} else if (npcGive.input.pointerOver()&&item!=null){
 					dialogue("error", 3, 1, false, true);
 				}
-				//destros popup after choice or no choice is made
 				npcTalk.destroy();
 				npcEx.destroy();
 				npcGive.destroy();
-				//popup does not exist, can be made again
 				popUp=false;
 			} else if(stateIn=='town'&&interactable=="prince"){
 				if (npcTalk.input.pointerOver()&&princeCount==1){
@@ -286,11 +309,9 @@ function onTap(pointer) {
 				} else if (npcGive.input.pointerOver()&&item!=null){
 					dialogue("error", 3, 1, false, true);
 				}
-				//destros popup after choice or no choice is made
 				npcTalk.destroy();
 				npcEx.destroy();
 				npcGive.destroy();
-				//popup does not exist, can be made again
 				popUp=false;
 			} else if(stateIn=='forest'&&interactable=="lumberjack"){
 				if (npcTalk.input.pointerOver()&&lumberjackCount==1){
@@ -324,11 +345,9 @@ function onTap(pointer) {
 				} else if (npcGive.input.pointerOver()&&item!=null){
 					dialogue("error", 3, 1, false, true);
 				}
-				//destros popup after choice or no choice is made
 				npcTalk.destroy();
 				npcEx.destroy();
 				npcGive.destroy();
-				//popup does not exist, can be made again
 				popUp=false;
 			} else if(stateIn=='graveyard'&&interactable=="dic"){
 				if (npcTalk.input.pointerOver()){
@@ -348,11 +367,9 @@ function onTap(pointer) {
 				} else if (npcGive.input.pointerOver()&&item!=null){
 					dialogue("error", 3, 1, false, true);
 				}
-				//destros popup after choice or no choice is made
 				npcTalk.destroy();
 				npcEx.destroy();
 				npcGive.destroy();
-				//popup does not exist, can be made again
 				popUp=false;
 			} else if(stateIn=='town'&&interactable=="dog"){
 				if (itemTake.input.pointerOver()){
@@ -366,11 +383,9 @@ function onTap(pointer) {
 				} else if (itemUse.input.pointerOver()){
 					dialogue("error", 1, 1, false, true);
 				}
-				//destros popup after choice or no choice is made
 				itemTake.destroy();
 				itemEx.destroy();
 				itemUse.destroy();
-				//popup does not exist, can be made again
 				popUp=false;
 			} else if(stateIn=='forest'&&interactable=="skull"){
 				if (itemTake.input.pointerOver()){
@@ -384,11 +399,9 @@ function onTap(pointer) {
 				} else if (itemUse.input.pointerOver()){
 					dialogue("error", 1, 1, false, true);
 				}
-				//destros popup after choice or no choice is made
 				itemTake.destroy();
 				itemEx.destroy();
 				itemUse.destroy();
-				//popup does not exist, can be made again
 				popUp=false;
 			} else if(stateIn=='forest'&&interactable=="sign"){
 				if (itemTake.input.pointerOver()){
@@ -401,11 +414,9 @@ function onTap(pointer) {
 				} else if (itemUse.input.pointerOver()){
 					dialogue("error", 1, 1, false, true);
 				}
-				//destros popup after choice or no choice is made
 				itemTake.destroy();
 				itemEx.destroy();
 				itemUse.destroy();
-				//popup does not exist, can be made again
 				popUp=false;
 			} else if(stateIn=='forest'&&interactable=="gate"&&gateOpen==false){
 				if (itemTake.input.pointerOver()){
@@ -454,11 +465,9 @@ function onTap(pointer) {
 				} else if (itemUse.input.pointerOver()&&item=='key2'){
 					dialogue("gate", 10, 2, false, true);
 				}
-				//destros popup after choice or no choice is made
 				itemTake.destroy();
 				itemEx.destroy();
 				itemUse.destroy();
-				//popup does not exist, can be made again
 				popUp=false;
 			} else if(stateIn=='graveyard'&&interactable=="grave1"){
 				if (itemTake.input.pointerOver()){
@@ -470,11 +479,9 @@ function onTap(pointer) {
 				} else if (itemUse.input.pointerOver()){
 					dialogue("error", 1, 1, false, true);
 				}
-				//destros popup after choice or no choice is made
 				itemTake.destroy();
 				itemEx.destroy();
 				itemUse.destroy();
-				//popup does not exist, can be made again
 				popUp=false;
 			} else if(stateIn=='graveyard'&&interactable=="grave2"){
 				if (itemTake.input.pointerOver()){
@@ -486,11 +493,9 @@ function onTap(pointer) {
 				} else if (itemUse.input.pointerOver()){
 					dialogue("error", 1, 1, false, true);
 				}
-				//destros popup after choice or no choice is made
 				itemTake.destroy();
 				itemEx.destroy();
 				itemUse.destroy();
-				//popup does not exist, can be made again
 				popUp=false;
 			}
 			interactable=null;
@@ -500,16 +505,20 @@ function onTap(pointer) {
 }
 
 function dialogue(subject, action, lines, conversation, using) {
+	//sets variables to be used in and out of this function
 	count=1;
 	lineCount=lines;
 	storedAction=action;
 	storedSubject=subject;
+
+	//adds the diming screen behind text, speakers, and items
 	screen = game.add.sprite(game.width/2,game.height/2,'art','ui');
 	screen.scale.setTo(3);
 	screen.anchor.set(.5);
 	if(subject=='prince'&&action==1){}else{screen.alpha=.5;}
 	itemUp=false;
 
+	//checks if the type of interaction is an ending, an item examination, an npc examination, or an npc conversation and places the correct assets based on the results
 	if(subject=='end'){
 		if(action==1){
 			ending=game.add.sprite(game.width/2,game.height/3+12,'ending-01');
@@ -549,12 +558,16 @@ function dialogue(subject, action, lines, conversation, using) {
 		playerUp=true;
 	}
 	box=true;
+
+	//if an item is being used, such as with an npc item-give or an item item-use, shows the item being used
 	if(using==true){
 		itemUsing=game.add.sprite(game.width/2,game.height/2+50,'art',item);
 		if(item!='dog'){itemUsing.scale.setTo(1.5);}else{itemUsing.scale.setTo(-.75,.75)}
 		itemUsing.anchor.setTo(.5,.5);
 		itemUp=true;
 	}
+
+	//displays the first line of text in sequence for this interaction
 	text=game.add.sprite(game.width/2,game.height-112.5,'dialogue',subject+'-'+action+'-0'+count);
 	text.scale.setTo(1.5);
 	text.anchor.set(.5);
